@@ -53,7 +53,8 @@ rmw_take_response(
   CustomClientResponse response = info->listener_->getResponse();
 
   if (response.buffer_ != nullptr) {
-    eprosima::fastcdr::Cdr deser(*response.buffer_, eprosima::fastcdr::Cdr::DEFAULT_ENDIAN, eprosima::fastcdr::Cdr::DDS_CDR);
+    eprosima::fastcdr::Cdr deser(*response.buffer_, eprosima::fastcdr::Cdr::DEFAULT_ENDIAN,
+      eprosima::fastcdr::Cdr::DDS_CDR);
     _deserialize_ros_message(deser, ros_response, info->response_type_support_,
       info->typesupport_identifier_);
 
